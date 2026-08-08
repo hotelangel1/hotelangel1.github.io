@@ -4,876 +4,3141 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hotel Angel | Chhinnamasta 03 , Sakhada , Nepal</title>
+<title>Hotel Angel | Sakhada, Saptari</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="description"
+      content="Hotel Angel - Restaurant, food ordering and hospitality in Chhinnamasta-03, Sakhada, Saptari, Nepal.">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#8b0000">
 
 <style>
+/* =========================================================
+   HOTEL ANGEL V1
+   ALL-IN-ONE HTML + CSS + JAVASCRIPT
+   ========================================================= */
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+:root {
+    --primary: #8b0000;
+    --primary-dark: #5e0000;
+    --secondary: #d4af37;
+    --dark: #171717;
+    --dark2: #252525;
+    --light: #fffaf2;
+    --white: #ffffff;
+    --gray: #777;
+    --border: #e6e0d8;
+    --success: #198754;
+    --danger: #dc3545;
+    --shadow: 0 10px 30px rgba(0,0,0,.10);
+    --radius: 14px;
 }
 
-body{
-background:#f5f5f5;
-color:#222;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:#111;
-padding:15px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:999;
-box-shadow:0 5px 20px rgba(0,0,0,.3);
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
 }
 
-.logo{
-display:flex;
-align-items:center;
-gap:12px;
-color:#fff;
-font-size:22px;
-font-weight:bold;
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
 }
 
-.logo img{
-width:55px;
-height:55px;
-border-radius:50%;
-background:white;
-padding:4px;
+button {
+    cursor: pointer;
 }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:25px;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-nav ul li a{
-text-decoration:none;
-color:white;
-font-weight:500;
-transition:.3s;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-nav ul li a:hover{
-color:#ffb703;
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,.97);
+    box-shadow: 0 2px 15px rgba(0,0,0,.08);
 }
 
-.-btn{
-display:none;
-font-size:30px;
-color:white;
-cursor:pointer;
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    min-height: 75px;
+    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.hero{
-
-height:100vh;
-
-background:
-
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-
-url("images/banner.jpg") center/cover;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-color:white;
-
-padding:20px;
-
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.hero h1{
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
 
-font-size:60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-margin-bottom:15px;
-
+    background: var(--primary);
+    color: var(--secondary);
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.hero p{
-
-font-size:22px;
-
-margin-bottom:35px;
-
+.logo-text h1 {
+    color: var(--primary);
+    font-family: Georgia, serif;
+    font-size: 23px;
 }
 
-.btn{
-
-display:inline-block;
-
-padding:15px 40px;
-
-background:#ffb703;
-
-color:#111;
-
-font-weight:bold;
-
-border-radius:40px;
-
-text-decoration:none;
-
-transition:.3s;
-
+.logo-text span {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 1px;
 }
 
-.btn:hover{
-
-background:white;
-
-transform:translateY(-5px);
-
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    list-style: none;
 }
 
-section{
-
-padding:90px 8%;
-
+.nav-links a {
+    font-weight: 600;
+    transition: .2s;
 }
 
-.title{
-
-text-align:center;
-
-font-size:40px;
-
-margin-bottom:50px;
-
-color:#222;
-
+.nav-links a:hover {
+    color: var(--primary);
 }
 
-.about{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:40px;
-
-align-items:center;
-
+.cart-nav-btn {
+    border: none;
+    background: var(--primary);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-weight: bold;
 }
 
-.about img{
-
-width:100%;
-
-border-radius:15px;
-
+.cart-count {
+    background: var(--secondary);
+    color: #000;
+    padding: 2px 7px;
+    border-radius: 50%;
+    font-size: 12px;
+    margin-left: 4px;
 }
 
-.about-text h2{
-
-font-size:40px;
-
-margin-bottom:20px;
-
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 28px;
 }
 
-.about-text p{
+/* =========================
+   HERO
+   ========================= */
 
-line-height:1.9;
+.hero {
+    min-height: 650px;
+    position: relative;
 
-font-size:17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    text-align: center;
+    color: white;
+
+    background:
+        linear-gradient(rgba(0,0,0,.68), rgba(0,0,0,.65)),
+        url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
 }
 
-.cards{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:30px;
-
+.hero-content {
+    max-width: 850px;
+    padding: 30px 20px;
 }
 
-.card{
-
-background:white;
-
-border-radius:15px;
-
-overflow:hidden;
-
-box-shadow:0 10px 30px rgba(0,0,0,.1);
-
-transition:.4s;
-
+.hero-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+    border-radius: 30px;
+    margin-bottom: 18px;
+    font-weight: bold;
 }
 
-.card:hover{
-
-transform:translateY(-10px);
-
+.hero h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 7vw, 76px);
+    margin-bottom: 12px;
 }
 
-.card img{
-
-width:100%;
-
-height:220px;
-
-object-fit:cover;
-
+.hero p {
+    font-size: 19px;
+    max-width: 700px;
+    margin: auto;
+    color: #f4f4f4;
 }
 
-.card-content{
-
-padding:20px;
-
-text-align:center;
-
+.hero-buttons {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
-.card-content h3{
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-margin-bottom:10px;
+    padding: 13px 23px;
+    border-radius: 8px;
+    border: none;
 
+    font-weight: bold;
+    transition: .2s;
 }
 
-.price{
-
-color:#e63946;
-
-font-weight:bold;
-
-font-size:22px;
-
-margin-top:10px;
-
+.btn:hover {
+    transform: translateY(-2px);
 }
 
-.features{
-
-background:#111;
-
-color:white;
-
+.btn-primary {
+    background: var(--primary);
+    color: white;
 }
 
-.feature-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:30px;
-
+.btn-gold {
+    background: var(--secondary);
+    color: #111;
 }
 
-.feature{
-
-text-align:center;
-
-padding:35px;
-
-background:#1e1e1e;
-
-border-radius:15px;
-
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+    background: transparent;
 }
 
-.feature h3{
+/* =========================
+   SECTIONS
+   ========================= */
 
-margin:20px 0;
-
-color:#ffb703;
-
+section {
+    padding: 75px 20px;
 }
 
-.whatsapp{
-
-position:fixed;
-
-right:25px;
-
-bottom:25px;
-
-background:#25D366;
-
-color:white;
-
-width:65px;
-
-height:65px;
-
-border-radius:50%;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:32px;
-
-text-decoration:none;
-
-box-shadow:0 5px 20px rgba(0,0,0,.3);
-
-z-index:999;
-
+.container {
+    max-width: 1200px;
+    margin: auto;
 }
 
-@media(max-width:900px){
-
-.about{
-
-grid-template-columns:1fr;
-
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-.hero h1{
-
-font-size:42px;
-
+.section-title span {
+    color: var(--secondary);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-nav ul{
-
-display:none;
-
-position:absolute;
-
-top:85px;
-
-left:0;
-
-width:100%;
-
-background:#111;
-
-flex-direction:column;
-
-padding:20px;
-
+.section-title h2 {
+    font-family: Georgia, serif;
+    color: var(--primary);
+    font-size: 38px;
+    margin-top: 5px;
 }
 
-nav ul.active{
-
-display:flex;
-
+.section-title p {
+    max-width: 700px;
+    margin: 10px auto;
+    color: var(--gray);
 }
 
-.-btn{
+/* =========================
+   FEATURE CARDS
+   ========================= */
 
-display:block;
-
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
+.feature-card {
+    background: white;
+    padding: 28px 20px;
+    text-align: center;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
+.feature-icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.feature-card h3 {
+    margin-bottom: 5px;
+}
+
+/* =========================
+   ABOUT
+   ========================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.about-image {
+    min-height: 430px;
+    border-radius: var(--radius);
+    background:
+        linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)),
+        url("https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=85")
+        center/cover;
+    box-shadow: var(--shadow);
+}
+
+.about-content h2 {
+    font-family: Georgia, serif;
+    color: var(--primary);
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.about-list {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.about-list li {
+    margin: 9px 0;
+    font-weight: 600;
+}
+
+/* =========================
+   MENU
+   ========================= */
+
+.menu-section {
+    background: #fff;
+}
+
+.menu-controls {
+    max-width: 950px;
+    margin: 0 auto 35px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.search-box:focus {
+    border-color: var(--primary);
+}
+
+.categories {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-btn {
+    border: 1px solid var(--primary);
+    background: white;
+    color: var(--primary);
+    padding: 9px 15px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.category-btn.active,
+.category-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.menu-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: .2s;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.menu-card-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.menu-card h3 {
+    font-size: 18px;
+}
+
+.menu-category {
+    color: var(--gray);
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.price {
+    color: var(--primary);
+    font-size: 19px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.menu-description {
+    color: #777;
+    font-size: 13px;
+    margin: 12px 0;
+}
+
+.add-btn {
+    width: 100%;
+    border: none;
+    background: var(--primary);
+    color: white;
+    padding: 11px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.add-btn:hover {
+    background: var(--primary-dark);
+}
+
+.no-results {
+    text-align: center;
+    padding: 30px;
+    color: var(--gray);
+    display: none;
+}
+
+/* =========================
+   GALLERY
+   ========================= */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.gallery-item {
+    height: 230px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #ddd;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+/* =========================
+   CONTACT
+   ========================= */
+
+.contact-section {
+    background: var(--dark);
+    color: white;
+}
+
+.contact-section .section-title h2 {
+    color: white;
+}
+
+.contact-section .section-title p {
+    color: #ccc;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.contact-card {
+    background: var(--dark2);
+    border: 1px solid #444;
+    padding: 25px;
+    border-radius: var(--radius);
+}
+
+.contact-card h3 {
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: #ddd;
+}
+
+.contact-card a {
+    color: white;
+}
+
+.contact-card a:hover {
+    color: var(--secondary);
+}
+
+/* =========================
+   CART DRAWER
+   ========================= */
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: 2000;
+    display: none;
+}
+
+.cart-overlay.show {
+    display: block;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -480px;
+    width: min(460px, 100%);
+    height: 100vh;
+    background: white;
+    z-index: 2100;
+    display: flex;
+    flex-direction: column;
+    transition: .3s;
+    box-shadow: -5px 0 30px rgba(0,0,0,.2);
+}
+
+.cart-drawer.open {
+    right: 0;
+}
+
+.cart-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header h2 {
+    color: var(--primary);
+}
+
+.close-cart {
+    border: none;
+    background: transparent;
+    font-size: 27px;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--gray);
+}
+
+.cart-item {
+    border-bottom: 1px solid var(--border);
+    padding: 15px 0;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.cart-item-name {
+    font-weight: bold;
+}
+
+.cart-item-price {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.quantity-control button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 5px;
+}
+
+.remove-item {
+    color: var(--danger);
+    border: none;
+    background: transparent;
+    font-size: 12px;
+}
+
+.cart-summary {
+    border-top: 1px solid var(--border);
+    padding: 18px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 7px 0;
+}
+
+.summary-total {
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--primary);
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+}
+
+.checkout-btn {
+    width: 100%;
+    border: none;
+    background: #25D366;
+    color: white;
+    padding: 14px;
+    margin-top: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* =========================
+   CHECKOUT MODAL
+   ========================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.65);
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal {
+    width: min(650px, 100%);
+    max-height: 92vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    color: var(--primary);
+}
+
+.close-modal {
+    border: none;
+    background: transparent;
+    font-size: 27px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.required {
+    color: red;
+}
+
+/* =========================
+   RECEIPT
+   ========================= */
+
+.receipt {
+    background: white;
+    border: 1px dashed #aaa;
+    padding: 20px;
+    margin-top: 20px;
+    display: none;
+}
+
+.receipt.show {
+    display: block;
+}
+
+.receipt-header {
+    text-align: center;
+    border-bottom: 1px dashed #aaa;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+
+.receipt-header h2 {
+    color: var(--primary);
+    font-family: Georgia, serif;
+}
+
+.receipt-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+.receipt-table th,
+.receipt-table td {
+    padding: 7px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.receipt-table th:last-child,
+.receipt-table td:last-child {
+    text-align: right;
+}
+
+.receipt-total {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+.receipt-footer {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 13px;
+    color: #777;
+}
+
+.receipt-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.receipt-actions button {
+    flex: 1;
+}
+
+/* =========================
+   TOAST
+   ========================= */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+    transform: translate(-50%, 120px);
+    background: var(--dark);
+    color: white;
+    padding: 13px 20px;
+    border-radius: 30px;
+    z-index: 5000;
+    opacity: 0;
+    transition: .3s;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+/* =========================
+   FLOATING BUTTONS
+   ========================= */
+
+.floating-buttons {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 1500;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.float-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 23px;
+    box-shadow: var(--shadow);
+}
+
+.whatsapp {
+    background: #25D366;
+}
+
+.phone {
+    background: var(--primary);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background: #0d0d0d;
+    color: #aaa;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+footer h2 {
+    color: white;
+    font-family: Georgia, serif;
+    margin-bottom: 5px;
+}
+
+footer strong {
+    color: var(--secondary);
+}
+
+.footer-links {
+    margin: 15px 0;
+}
+
+.footer-links a {
+    margin: 0 8px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 950px) {
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 750px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        right: 0;
+
+        background: white;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 20px;
+
+        box-shadow: 0 10px 20px rgba(0,0,0,.1);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 10px;
+    }
+
+    .cart-nav-btn {
+        margin-top: 5px;
+    }
+
+    .hero {
+        min-height: 570px;
+    }
+
+    .hero h2 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    section {
+        padding: 55px 15px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+}
+
+/* =========================
+   PRINT
+   ========================= */
+
+@media print {
+
+    body * {
+        visibility: hidden !important;
+    }
+
+    .receipt,
+    .receipt * {
+        visibility: visible !important;
+    }
+
+    .receipt {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+    }
+
+    .receipt-actions {
+        display: none !important;
+    }
+}
 </style>
-
 </head>
 
 <body>
 
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
 <header>
 
-<div class="logo">
+<nav class="navbar">
 
-<img src="images/logo.png">
+    <a href="#home" class="logo">
 
-<span>Hotel Angel</span>
+        <div class="logo-icon">
+            HA
+        </div>
 
-</div>
+        <div class="logo-text">
+            <h1>Hotel Angel</h1>
+            <span>SAKHADA • SAPTARI</span>
+        </div>
 
-<nav>
+    </a>
 
-<div class="-btn">&#9776;</div>
+    <button class="menu-toggle" onclick="toggleNavigation()">
+        ☰
+    </button>
 
-<ul>
+    <ul class="nav-links" id="navLinks">
 
-<li><a href="#home">Home</a></li>
+        <li>
+            <a href="#home" onclick="closeNavigation()">Home</a>
+        </li>
 
-<li><a href="#about">About</a></li>
+        <li>
+            <a href="#about" onclick="closeNavigation()">About</a>
+        </li>
 
-<li><a href="#"></a></li>
+        <li>
+            <a href="#menu" onclick="closeNavigation()">Menu</a>
+        </li>
 
-<li><a href="#features">Facilities</a></li>
+        <li>
+            <a href="#gallery" onclick="closeNavigation()">Gallery</a>
+        </li>
 
-<li><a href="#gallery">Gallery</a></li>
+        <li>
+            <a href="#contact" onclick="closeNavigation()">Contact</a>
+        </li>
 
-<li><a href="#contact">Contact</a></li>
+        <li>
+            <button class="cart-nav-btn" onclick="openCart()">
+                🛒 Cart
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </li>
 
-</ul>
+    </ul>
 
 </nav>
 
 </header>
 
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
 <section class="hero" id="home">
 
-<div>
+    <div class="hero-content">
 
-<h1>Welcome to Hotel Angel</h1>
+        <div class="hero-badge">
+            🍽️ Welcome to Hotel Angel
+        </div>
 
-<p>
-Best Hotel & Restaurant in Chhinnamasata 03, Sakhada , Nepal
-</p>
+        <h2>
+            Taste. Comfort. Hospitality.
+        </h2>
 
-<a href="#" class="btn">
+        <p>
+            Enjoy delicious Nepali, Indian and Chinese cuisine
+            with warm hospitality at Hotel Angel, Sakhada, Saptari.
+        </p>
 
-Explore 
+        <div class="hero-buttons">
 
-</a>
+            <a href="#menu" class="btn btn-gold">
+                🍽️ Explore Menu
+            </a>
 
-</div>
+            <button class="btn btn-primary" onclick="openCart()">
+                🛒 Order Now
+            </button>
 
-</section>
+            <a href="tel:+9779806302071" class="btn btn-outline">
+                📞 Call Us
+            </a>
 
-<section id="about">
+        </div>
 
-<h2 class="title">
-
-About Hotel Angel
-
-</h2>
-
-<div class="about">
-
-<img src="images/hotel.jpg">
-
-<div class="about-text">
-
-<h2>Your Comfort Is Our Priority</h2>
-
-<p>
-
-Hotel Angel offers delicious Nepali, Indian and Chinese cuisine,
-comfortable accommodation, family dining, free Wi-Fi, parking,
-and warm hospitality. Whether you're visiting Chhinnamasta 03 Sakhada for business,
-travel or family gatherings, we strive to make every guest feel at home.
-
-</p>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<section id="menu">
 
-<h2 class="title">Our Complete Menu</h2>
-
-<div class="cards">
-
-<div class="card">
-<div class="card-content">
-<h3>🥦 Vegetable Garden</h3>
-<p>Mix Veg <span class="price">Rs.150</span></p>
-<p>Aloo Gobhi <span class="price">Rs.150</span></p>
-<p>Jeera Aloo <span class="price">Rs.150</span></p>
-<p>Mutter Mushroom <span class="price">Rs.250</span></p>
-<p>Dal Tadka <span class="price">Rs.120</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🌭 Sausage</h3>
-<p>Chicken Sausage Fry <span class="price">Rs.180</span></p>
-<p>Chicken Sausage Chili <span class="price">Rs.200</span></p>
-<p>Chicken Sausage Boil <span class="price">Rs.180</span></p>
-<p>Chicken Sausage Sadheko <span class="price">Rs.200</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🍚 Fried Rice</h3>
-<p>Veg Fried Rice <span class="price">Rs.120</span></p>
-<p>Chicken Fried Rice <span class="price">Rs.150</span></p>
-<p>Egg Fried Rice <span class="price">Rs.150</span></p>
-<p>Mutton Fried Rice <span class="price">Rs.250</span></p>
-<p>Mix Veg Fried Rice <span class="price">Rs.150</span></p>
-<p>Non-Veg Mixed Fried Rice <span class="price">Rs.180</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🍛 Biryani</h3>
-<p>Veg Biryani <span class="price">Rs.280</span></p>
-<p>Chicken Biryani <span class="price">Rs.380</span></p>
-<p>Mutton Biryani <span class="price">Rs.480</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🥣 Soup</h3>
-<p>Cream of Mushroom Soup <span class="price">Rs.180</span></p>
-<p>Cream of Tomato Soup <span class="price">Rs.150</span></p>
-<p>Veg Manchurian Soup <span class="price">Rs.150</span></p>
-<p>Veg Hot & Sour Soup <span class="price">Rs.150</span></p>
-<p>Chicken Manchurian Soup <span class="price">Rs.180</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🥗 Salad</h3>
-<p>Nepali Salad <span class="price">Rs.120</span></p>
-<p>Green Salad <span class="price">Rs.120</span></p>
-<p>Fruit Salad <span class="price">Rs.200</span></p>
-<p>Russian Salad <span class="price">Rs.200</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🥪 Sandwiches & Burgers</h3>
-<p>Veg Sandwich <span class="price">Market Price</span></p>
-<p>Cheese Sandwich <span class="price">Market Price</span></p>
-<p>Chicken Sandwich <span class="price">Market Price</span></p>
-<p>Veg Burger <span class="price">Market Price</span></p>
-<p>Chicken Burger <span class="price">Market Price</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🍜 Main Course</h3>
-<p>Veg Noodles <span class="price">Rs.100</span></p>
-<p>Chicken Noodles <span class="price">Rs.150</span></p>
-<p>Veg Thukpa <span class="price">Rs.100</span></p>
-<p>Chicken Thukpa <span class="price">Rs.150</span></p>
-<p>Veg Chowmein <span class="price">Rs.100</span></p>
-<p>Chicken Chowmein <span class="price">Rs.150</span></p>
-<p>Paneer Butter Masala <span class="price">Rs.250</span></p>
-<p>Veg Curry <span class="price">Rs.200</span></p>
-<p>Chicken Curry <span class="price">Rs.300</span></p>
-<p>Mutton Curry <span class="price">Rs.400</span></p>
-<p>Veg Momo <span class="price">Rs.100</span></p>
-<p>Chicken Momo <span class="price">Rs.150</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🍵 Tea & Mocktails</h3>
-<p>Black Tea <span class="price">Rs.25</span></p>
-<p>Milk Tea <span class="price">Rs.30</span></p>
-<p>Masala Tea <span class="price">Rs.50</span></p>
-<p>Lemon Tea <span class="price">Rs.30</span></p>
-<p>Sweet Lassi <span class="price">Rs.80</span></p>
-<p>Salted Lassi <span class="price">Rs.80</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🥤 Soft Drinks</h3>
-<p>Coke <span class="price">Rs.80</span></p>
-<p>Fanta <span class="price">Rs.80</span></p>
-<p>Sprite <span class="price">Rs.80</span></p>
-<p>Mineral Water <span class="price">Rs.25</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🍚 Rice</h3>
-<p>Steam Rice <span class="price">Rs.100</span></p>
-<p>Jeera Rice <span class="price">Rs.150</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🍽️ Nepali Thali Set</h3>
-<p>Veg Thali Set <span class="price">Rs.150</span></p>
-<p>Chicken Thali Set <span class="price">Rs.250</span></p>
-<p>Mutton Thali Set <span class="price">Rs.350</span></p>
-<p>Fish Thali Set <span class="price">Rs.250</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🍗 Snacks</h3>
-<p>French Fries <span class="price">Rs.180</span></p>
-<p>Chicken Chilli <span class="price">Rs.280</span></p>
-<p>Chicken Wings <span class="price">Rs.280</span></p>
-<p>Paneer Pakoda <span class="price">Rs.250</span></p>
-<p>Veg Chilli Momo <span class="price">Rs.150</span></p>
-<p>Chicken Chilli Momo <span class="price">Rs.180</span></p>
-<p>Chicken Chilli Fry Momo <span class="price">Rs.200</span></p>
-<p>Chicken Roast <span class="price">Rs.280</span></p>
-<p>Chicken KFC <span class="price">Rs.380</span></p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-content">
-<h3>🇮🇳 Indian Specials</h3>
-<p>Roti <span class="price">Market Price</span></p>
-<p>Dosa <span class="price">Market Price</span></p>
-<p>Chole Bhature <span class="price">Market Price</span></p>
-<p>Paratha <span class="price">Market Price</span></p>
-<p>Samosa Chaat <span class="price">Market Price</span></p>
-<p>Chana Chura <span class="price">Market Price</span></p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= FEATURES ================= -->
-
-<section class="features" id="features">
-
-<h2 class="title" style="color:white;">Why Choose Hotel Angel?</h2>
-
-<div class="feature-grid">
-
-<div class="feature">
-<h3>🍽 Delicious Food</h3>
-<p>Fresh Nepali, Indian and Chinese cuisine prepared with quality ingredients.</p>
-</div>
-
-<div class="feature">
-<h3>🛏 Comfortable Rooms</h3>
-<p>Clean, spacious rooms for families, tourists and business travelers.</p>
-</div>
-
-<div class="feature">
-<h3>📶 Free Wi-Fi</h3>
-<p>Stay connected with complimentary high-speed internet access.</p>
-</div>
-
-<div class="feature">
-<h3>🚗 Parking</h3>
-<p>Safe and convenient parking available for all guests.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= GALLERY ================= -->
-
-<section id="gallery">
-
-<h2 class="title">Gallery</h2>
-
-<div class="cards">
-
-<div class="card">
-<img src="images/gallery1.jpg" alt="Hotel Interior">
-</div>
-
-<div class="card">
-<img src="images/gallery2.jpg" alt="Restaurant">
-</div>
-
-<div class="card">
-<img src="images/gallery3.jpg" alt="Food">
-</div>
-
-<div class="card">
-<img src="images/gallery4.jpg" alt="Room">
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= REVIEWS ================= -->
+<!-- =========================================================
+     FEATURES
+     ========================================================= -->
 
 <section>
 
-<h2 class="title">What Our Guests Say</h2>
+<div class="container">
 
-<div class="cards">
+    <div class="features">
 
-<div class="card">
-<div class="card-content">
-⭐⭐⭐⭐⭐
-<p>"Very delicious food and friendly staff. Highly recommended!"</p>
-<h4>- Customer</h4>
-</div>
-</div>
+        <div class="feature-card">
+            <div class="feature-icon">🍛</div>
+            <h3>Fresh Food</h3>
+            <p>Freshly prepared meals for our guests.</p>
+        </div>
 
-<div class="card">
-<div class="card-content">
-⭐⭐⭐⭐⭐
-<p>"Clean rooms, peaceful environment and excellent service."</p>
-<h4>- Traveller</h4>
-</div>
-</div>
+        <div class="feature-card">
+            <div class="feature-icon">👨‍🍳</div>
+            <h3>Quality Taste</h3>
+            <p>Delicious Nepali, Indian and Chinese dishes.</p>
+        </div>
 
-<div class="card">
-<div class="card-content">
-⭐⭐⭐⭐⭐
-<p>"One of the best family restaurants in Chhinnamasta 03 Sakhada"</p>
-<h4>- Local Guest</h4>
-</div>
-</div>
+        <div class="feature-card">
+            <div class="feature-icon">🏨</div>
+            <h3>Comfort</h3>
+            <p>A welcoming place for family and friends.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">❤️</div>
+            <h3>Hospitality</h3>
+            <p>Friendly service with genuine care.</p>
+        </div>
+
+    </div>
 
 </div>
 
 </section>
 
-<!-- ================= CONTACT ================= -->
 
-<section id="contact">
+<!-- =========================================================
+     ABOUT
+     ========================================================= -->
 
-<h2 class="title">Contact Us</h2>
+<section id="about">
 
-<div style="max-width:800px;margin:auto;text-align:center;line-height:2;font-size:18px;">
+<div class="container">
 
-<p><strong>📍 Address</strong><br>
-Chhinnamasta 03 , Sakhada, Saptari, Nepal</p>
+    <div class="about-grid">
 
-<p><strong>📞 Phone</strong><br>
-9806302071<br>
-9863820763</p>
+        <div class="about-image"></div>
 
-<p><strong>✉ Email</strong><br>
-hotelangel@gmail.com</p>
+        <div class="about-content">
 
-<p><strong>🕒 Open</strong><br>
-Everyday : 6:00 AM – 10:00 PM</p>
+            <div class="section-title" style="text-align:left;margin-bottom:15px;">
+                <span>About Us</span>
+                <h2>Hotel Angel</h2>
+            </div>
 
-<a class="btn" href="https://wa.me/9779806302071" target="_blank">
-Order on WhatsApp
-</a>
+            <p>
+                Welcome to Hotel Angel, your local destination for
+                delicious food, comfortable hospitality and a friendly
+                dining experience in Sakhada, Saptari.
+            </p>
+
+            <p>
+                We serve a variety of Nepali, Indian and Chinese dishes,
+                prepared with care and served with warm hospitality.
+            </p>
+
+            <ul class="about-list">
+
+                <li>✔ Freshly prepared food</li>
+                <li>✔ Family-friendly environment</li>
+                <li>✔ Nepali, Indian & Chinese cuisine</li>
+                <li>✔ Easy WhatsApp ordering</li>
+                <li>✔ Friendly customer service</li>
+
+            </ul>
+
+            <a href="#menu" class="btn btn-primary">
+                View Our Menu
+            </a>
+
+        </div>
+
+    </div>
 
 </div>
 
-<br><br>
+</section>
 
-<iframe
-src="https://maps.google.com/maps?q=Chhinnamasta 03 , Sakhada%20Nepal&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="100%"
-height="450"
-style="border:0;border-radius:15px;"
-loading="lazy">
-</iframe>
+
+<!-- =========================================================
+     MENU
+     ========================================================= -->
+
+<section class="menu-section" id="menu">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <span>Our Food</span>
+
+        <h2>Hotel Angel Menu</h2>
+
+        <p>
+            Choose your favorite dishes and add them to your cart.
+        </p>
+
+    </div>
+
+
+    <div class="menu-controls">
+
+        <input
+            type="search"
+            id="menuSearch"
+            class="search-box"
+            placeholder="🔎 Search food..."
+            oninput="renderMenu()"
+        >
+
+        <div class="categories" id="categories">
+
+            <button
+                class="category-btn active"
+                onclick="setCategory('All', this)">
+                All
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="setCategory('Vegetable Garden', this)">
+                Vegetable
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="setCategory('Sausage', this)">
+                Sausage
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="setCategory('Fry Rice', this)">
+                Fried Rice
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="setCategory('Biryani', this)">
+                Biryani
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="setCategory('Soup', this)">
+                Soup
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="setCategory('Salad', this)">
+                Salad
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="setCategory('Sandwiches & Burger', this)">
+                Burger
+            </button>
+
+            <button
+                class="category-btn"
+                onclick="setCategory('Main Course', this)">
+                Main Course
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="menu-grid" id="menuGrid"></div>
+
+    <div class="no-results" id="noResults">
+        😕 No food item found.
+    </div>
+
+</div>
 
 </section>
 
-<!-- ================= FOOTER ================= -->
 
-<footer style="background:#111;color:white;text-align:center;padding:35px;">
+<!-- =========================================================
+     GALLERY
+     ========================================================= -->
 
-<h2>Hotel Angel</h2>
+<section id="gallery">
 
-<p style="margin-top:10px;">
-Delicious Food • Comfortable Stay • Excellent Hospitality
-</p>
+<div class="container">
 
-<br>
+    <div class="section-title">
 
-<p>
+        <span>Gallery</span>
 
-© 2026 Hotel Angel
+        <h2>Hotel Angel</h2>
 
-</p>
+        <p>
+            A glimpse of food, dining and hospitality.
+        </p>
 
-<p>
+    </div>
 
-Designed by <strong>Mr. Bikram Sharma </strong>
 
-</p>
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80"
+                alt="Restaurant interior"
+                loading="lazy">
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80"
+                alt="Fresh food"
+                loading="lazy">
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=900&q=80"
+                alt="Food plate"
+                loading="lazy">
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
+                alt="Restaurant food"
+                loading="lazy">
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+     ========================================================= -->
+
+<section class="contact-section" id="contact">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <span>Contact Us</span>
+
+        <h2>Visit Hotel Angel</h2>
+
+        <p>
+            We look forward to welcoming you.
+        </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+        <div class="contact-card">
+
+            <h3>📍 Address</h3>
+
+            <p>
+                Hotel Angel<br>
+                Chhinnamasta-03, Sakhada<br>
+                Saptari, Nepal
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <h3>📞 Phone</h3>
+
+            <p>
+                <a href="tel:+9779806302071">
+                    +977-9806302071
+                </a>
+                <br>
+                <a href="tel:+9779863820763">
+                    +977-9863820763
+                </a>
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <h3>✉️ Email</h3>
+
+            <p>
+                <a href="mailto:hotelangelsakhada@gmail.com">
+                    hotelangelsakhada@gmail.com
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div style="text-align:center;margin-top:30px;">
+
+        <a
+            href="https://www.google.com/maps/search/?api=1&query=Hotel+Angel+Chhinnamasta+03+Sakhada+Saptari+Nepal"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-gold">
+
+            📍 Open Location
+
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <h2>Hotel Angel</h2>
+
+    <p>
+        Chhinnamasta-03, Sakhada, Saptari, Nepal
+    </p>
+
+    <div class="footer-links">
+
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+
+    </div>
+
+    <p>
+        © <span id="currentYear"></span>
+        Hotel Angel. All Rights Reserved.
+    </p>
+
+    <p style="margin-top:8px;">
+        Designed for <strong>Hotel Angel</strong>
+    </p>
 
 </footer>
 
-<!-- ================= WHATSAPP ================= -->
 
-<a class="whatsapp"
-href="https://wa.me/9779806302071"
-target="_blank">
+<!-- =========================================================
+     CART
+     ========================================================= -->
 
-💬
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 
-</a>
+<aside class="cart-drawer" id="cartDrawer">
 
-<!-- ================= JAVASCRIPT ================= -->
+    <div class="cart-header">
+
+        <h2>🛒 Your Cart</h2>
+
+        <button class="close-cart" onclick="closeCart()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="cart-items" id="cartItems">
+
+        <div class="empty-cart">
+            Your cart is empty.
+        </div>
+
+    </div>
+
+
+    <div class="cart-summary">
+
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">Rs. 0</strong>
+        </div>
+
+        <div class="summary-row">
+            <span>Service Charge</span>
+            <strong id="serviceCharge">Rs. 0</strong>
+        </div>
+
+        <div class="summary-row summary-total">
+            <span>Total</span>
+            <span id="cartTotal">Rs. 0</span>
+        </div>
+
+        <button class="checkout-btn" onclick="openCheckout()">
+            📱 Proceed to Order
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =========================================================
+     CHECKOUT MODAL
+     ========================================================= -->
+
+<div class="modal-overlay" id="checkoutModal">
+
+<div class="modal">
+
+    <div class="modal-header">
+
+        <h2>🧾 Place Your Order</h2>
+
+        <button class="close-modal" onclick="closeCheckout()">
+            ×
+        </button>
+
+    </div>
+
+
+    <form id="checkoutForm" onsubmit="submitOrder(event)">
+
+        <div class="form-grid">
+
+            <div class="form-group">
+
+                <label>
+                    Customer Name <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    required
+                    placeholder="Your name">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Phone Number <span class="required">*</span>
+                </label>
+
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    required
+                    placeholder="98XXXXXXXX"
+                    pattern="[0-9+\-\s]{7,20}">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Order Type
+                </label>
+
+                <select id="orderType">
+
+                    <option value="Dine In">
+                        Dine In
+                    </option>
+
+                    <option value="Takeaway">
+                        Takeaway
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Table / Location
+                </label>
+
+                <input
+                    type="text"
+                    id="tableNumber"
+                    placeholder="Table number / location">
+
+            </div>
+
+
+            <div class="form-group full">
+
+                <label>
+                    Special Instructions
+                </label>
+
+                <textarea
+                    id="specialInstructions"
+                    placeholder="Any special request..."></textarea>
+
+            </div>
+
+        </div>
+
+
+        <div style="margin-top:15px;">
+
+            <h3>Order Summary</h3>
+
+            <div id="checkoutSummary"></div>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="checkout-btn"
+            style="margin-top:20px;">
+
+            📱 Send Order via WhatsApp
+
+        </button>
+
+    </form>
+
+
+    <div class="receipt" id="receipt">
+
+        <div class="receipt-header">
+
+            <h2>Hotel Angel</h2>
+
+            <p>
+                Chhinnamasta-03, Sakhada, Saptari
+            </p>
+
+            <p>
+                Nepal
+            </p>
+
+            <strong id="receiptOrderNumber"></strong>
+
+        </div>
+
+
+        <div id="receiptCustomer"></div>
+
+
+        <table class="receipt-table">
+
+            <thead>
+
+                <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Amount</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="receiptItems"></tbody>
+
+        </table>
+
+
+        <div class="receipt-total">
+
+            Total:
+            <span id="receiptTotal"></span>
+
+        </div>
+
+
+        <div class="receipt-footer">
+
+            Thank you for choosing Hotel Angel ❤️
+            <br>
+            Please keep this receipt for your reference.
+
+        </div>
+
+
+        <div class="receipt-actions">
+
+            <button
+                class="btn btn-primary"
+                onclick="printReceipt()">
+
+                🖨️ Print
+
+            </button>
+
+            <button
+                class="btn btn-gold"
+                onclick="closeCheckout()">
+
+                Done
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     FLOATING BUTTONS
+     ========================================================= -->
+
+<div class="floating-buttons">
+
+    <a
+        class="float-btn whatsapp"
+        href="https://wa.me/9779806302071"
+        target="_blank"
+        rel="noopener"
+        aria-label="WhatsApp">
+
+        ☎
+
+    </a>
+
+    <a
+        class="float-btn phone"
+        href="tel:+9779806302071"
+        aria-label="Call Hotel Angel">
+
+        📞
+
+    </a>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+     ========================================================= -->
+
+<div class="toast" id="toast"></div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
 
 <script>
 
-const menuButton=document.querySelector(".menu-btn");
+/* =========================================================
+   HOTEL ANGEL MENU DATABASE
+   ========================================================= */
 
-const menu=document.querySelector("nav ul");
+const menuItems = [
 
-menuButton.onclick=function(){
+    {
+        id: 1,
+        name: "Mix Veg",
+        category: "Vegetable Garden",
+        price: 150,
+        description: "Fresh mixed vegetables."
+    },
 
-menu.classList.toggle("active");
+    {
+        id: 2,
+        name: "Aloo Gobhi",
+        category: "Vegetable Garden",
+        price: 150,
+        description: "Potato and cauliflower preparation."
+    },
 
-};
+    {
+        id: 3,
+        name: "Jeera Aloo",
+        category: "Vegetable Garden",
+        price: 150,
+        description: "Potatoes cooked with cumin."
+    },
 
-document.querySelectorAll("nav a").forEach(link=>{
+    {
+        id: 4,
+        name: "Mutter Mushroom",
+        category: "Vegetable Garden",
+        price: 250,
+        description: "Green peas and mushroom."
+    },
 
-link.onclick=function(){
+    {
+        id: 5,
+        name: "Dal Tadka",
+        category: "Vegetable Garden",
+        price: 120,
+        description: "Traditional dal with tempering."
+    },
 
-.classList.remove("active");
+
+    /* SAUSAGE */
+
+    {
+        id: 6,
+        name: "Chicken Sausage Fry",
+        category: "Sausage",
+        price: 180,
+        description: "Fried chicken sausage."
+    },
+
+    {
+        id: 7,
+        name: "Chicken Sausage Chili",
+        category: "Sausage",
+        price: 200,
+        description: "Chicken sausage with chili."
+    },
+
+    {
+        id: 8,
+        name: "Chicken Sausage Boil",
+        category: "Sausage",
+        price: 180,
+        description: "Boiled chicken sausage."
+    },
+
+    {
+        id: 9,
+        name: "Chicken Sausage Sadheko",
+        category: "Sausage",
+        price: 200,
+        description: "Nepali-style chicken sausage."
+    },
+
+
+    /* FRIED RICE */
+
+    {
+        id: 10,
+        name: "Veg Fried Rice",
+        category: "Fry Rice",
+        price: 120,
+        description: "Classic vegetable fried rice."
+    },
+
+    {
+        id: 11,
+        name: "Chicken Fried Rice",
+        category: "Fry Rice",
+        price: 150,
+        description: "Fried rice with chicken."
+    },
+
+    {
+        id: 12,
+        name: "Egg Fried Rice",
+        category: "Fry Rice",
+        price: 150,
+        description: "Fried rice with egg."
+    },
+
+    {
+        id: 13,
+        name: "Mutton Fried Rice",
+        category: "Fry Rice",
+        price: 250,
+        description: "Fried rice with mutton."
+    },
+
+    {
+        id: 14,
+        name: "Mix Veg Rice",
+        category: "Fry Rice",
+        price: 150,
+        description: "Mixed vegetable rice."
+    },
+
+    {
+        id: 15,
+        name: "Non Veg Mix Fry Rice",
+        category: "Fry Rice",
+        price: 180,
+        description: "Mixed non-vegetarian fried rice."
+    },
+
+
+    /* BIRYANI */
+
+    {
+        id: 16,
+        name: "Veg Biryani",
+        category: "Biryani",
+        price: 280,
+        description: "Aromatic vegetable biryani."
+    },
+
+    {
+        id: 17,
+        name: "Chicken Biryani",
+        category: "Biryani",
+        price: 380,
+        description: "Aromatic chicken biryani."
+    },
+
+    {
+        id: 18,
+        name: "Mutton Biryani",
+        category: "Biryani",
+        price: 480,
+        description: "Rich mutton biryani."
+    },
+
+
+    /* SOUP */
+
+    {
+        id: 19,
+        name: "Cream of Mushroom Soup",
+        category: "Soup",
+        price: 180,
+        description: "Creamy mushroom soup."
+    },
+
+    {
+        id: 20,
+        name: "Cream of Tomato Soup",
+        category: "Soup",
+        price: 150,
+        description: "Creamy tomato soup."
+    },
+
+    {
+        id: 21,
+        name: "Veg Manchurian Soup",
+        category: "Soup",
+        price: 150,
+        description: "Vegetable Manchurian soup."
+    },
+
+    {
+        id: 22,
+        name: "Veg Hot & Sour Soup",
+        category: "Soup",
+        price: 150,
+        description: "Hot and sour vegetable soup."
+    },
+
+    {
+        id: 23,
+        name: "Chicken Manchuria",
+        category: "Soup",
+        price: 180,
+        description: "Chicken Manchurian-style dish."
+    },
+
+
+    /* SALAD */
+
+    {
+        id: 24,
+        name: "Nepali Salad",
+        category: "Salad",
+        price: 120,
+        description: "Fresh Nepali-style salad."
+    },
+
+    {
+        id: 25,
+        name: "Green Salad",
+        category: "Salad",
+        price: 120,
+        description: "Fresh green salad."
+    },
+
+    {
+        id: 26,
+        name: "Fruit Salad",
+        category: "Salad",
+        price: 200,
+        description: "Fresh seasonal fruit salad."
+    },
+
+    {
+        id: 27,
+        name: "Russian Salad",
+        category: "Salad",
+        price: 200,
+        description: "Creamy Russian salad."
+    },
+
+
+    /* SANDWICH & BURGER */
+
+    {
+        id: 28,
+        name: "Veg Sandwich",
+        category: "Sandwiches & Burger",
+        price: 120,
+        description: "Fresh vegetable sandwich."
+    },
+
+    {
+        id: 29,
+        name: "Cheese Sandwich",
+        category: "Sandwiches & Burger",
+        price: 150,
+        description: "Cheesy sandwich."
+    },
+
+    {
+        id: 30,
+        name: "Chicken Sandwich",
+        category: "Sandwiches & Burger",
+        price: 180,
+        description: "Chicken sandwich."
+    },
+
+    {
+        id: 31,
+        name: "Veg Burger",
+        category: "Sandwiches & Burger",
+        price: 150,
+        description: "Vegetable burger."
+    },
+
+    {
+        id: 32,
+        name: "Chicken Burger",
+        category: "Sandwiches & Burger",
+        price: 200,
+        description: "Chicken burger."
+    },
+
+
+    /* MAIN COURSE */
+
+    {
+        id: 33,
+        name: "Veg Noodles",
+        category: "Main Course",
+        price: 100,
+        description: "Vegetable noodles."
+    },
+
+    {
+        id: 34,
+        name: "Chicken Noodles",
+        category: "Main Course",
+        price: 150,
+        description: "Chicken noodles."
+    }
+
+];
+
+
+/* =========================================================
+   APPLICATION STATE
+   ========================================================= */
+
+let currentCategory = "All";
+
+let cart = JSON.parse(
+    localStorage.getItem("hotelAngelCart") || "[]"
+);
+
+
+/* =========================================================
+   FORMAT CURRENCY
+   ========================================================= */
+
+function money(amount) {
+
+    return "Rs. " + Number(amount).toLocaleString("en-IN");
 
 }
 
-});
 
-const observer=new IntersectionObserver(entries=>{
+/* =========================================================
+   SAVE CART
+   ========================================================= */
 
-entries.forEach(entry=>{
+function saveCart() {
 
-if(entry.isIntersecting){
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
+    localStorage.setItem(
+        "hotelAngelCart",
+        JSON.stringify(cart)
+    );
 
 }
 
-});
 
-});
+/* =========================================================
+   RENDER MENU
+   ========================================================= */
 
-document.querySelectorAll(".card,.feature,.about-text,img").forEach(el=>{
+function renderMenu() {
 
-el.style.opacity="0";
+    const grid = document.getElementById("menuGrid");
 
-el.style.transform="translateY(40px)";
+    const noResults = document.getElementById("noResults");
 
-el.style.transition=".8s";
+    const search = document
+        .getElementById("menuSearch")
+        .value
+        .toLowerCase()
+        .trim();
 
-observer.observe(el);
 
-});
+    const filtered = menuItems.filter(item => {
+
+        const categoryMatch =
+            currentCategory === "All" ||
+            item.category === currentCategory;
+
+        const searchMatch =
+            item.name.toLowerCase().includes(search) ||
+            item.category.toLowerCase().includes(search) ||
+            item.description.toLowerCase().includes(search);
+
+        return categoryMatch && searchMatch;
+
+    });
+
+
+    grid.innerHTML = "";
+
+
+    if (filtered.length === 0) {
+
+        noResults.style.display = "block";
+
+        return;
+
+    }
+
+
+    noResults.style.display = "none";
+
+
+    filtered.forEach(item => {
+
+        const card = document.createElement("div");
+
+        card.className = "menu-card";
+
+        card.innerHTML = `
+
+            <div>
+
+                <div class="menu-card-top">
+
+                    <div>
+
+                        <h3>${escapeHTML(item.name)}</h3>
+
+                        <div class="menu-category">
+                            ${escapeHTML(item.category)}
+                        </div>
+
+                    </div>
+
+                    <div class="price">
+                        ${money(item.price)}
+                    </div>
+
+                </div>
+
+                <p class="menu-description">
+                    ${escapeHTML(item.description)}
+                </p>
+
+            </div>
+
+            <button
+                class="add-btn"
+                onclick="addToCart(${item.id})">
+
+                🛒 Add to Cart
+
+            </button>
+
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+function setCategory(category, button) {
+
+    currentCategory = category;
+
+
+    document
+        .querySelectorAll(".category-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+
+    button.classList.add("active");
+
+
+    renderMenu();
+
+}
+
+
+/* =========================================================
+   ADD TO CART
+   ========================================================= */
+
+function addToCart(id) {
+
+    const item = menuItems.find(
+        product => product.id === id
+    );
+
+    if (!item) return;
+
+
+    const existing = cart.find(
+        product => product.id === id
+    );
+
+
+    if (existing) {
+
+        existing.quantity += 1;
+
+    } else {
+
+        cart.push({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: 1
+        });
+
+    }
+
+
+    saveCart();
+
+    renderCart();
+
+    showToast(item.name + " added to cart");
+
+}
+
+
+/* =========================================================
+   CHANGE QUANTITY
+   ========================================================= */
+
+function changeQuantity(id, amount) {
+
+    const item = cart.find(
+        product => product.id === id
+    );
+
+    if (!item) return;
+
+
+    item.quantity += amount;
+
+
+    if (item.quantity <= 0) {
+
+        cart = cart.filter(
+            product => product.id !== id
+        );
+
+    }
+
+
+    saveCart();
+
+    renderCart();
+
+}
+
+
+/* =========================================================
+   REMOVE ITEM
+   ========================================================= */
+
+function removeFromCart(id) {
+
+    cart = cart.filter(
+        item => item.id !== id
+    );
+
+    saveCart();
+
+    renderCart();
+
+    showToast("Item removed");
+
+}
+
+
+/* =========================================================
+   CART TOTAL
+   ========================================================= */
+
+function getSubtotal() {
+
+    return cart.reduce(
+        (total, item) =>
+            total + item.price * item.quantity,
+        0
+    );
+
+}
+
+
+function getServiceCharge() {
+
+    /*
+       Change this to 0 if you don't want
+       a service charge.
+    */
+
+    return 0;
+
+}
+
+
+function getTotal() {
+
+    return getSubtotal() + getServiceCharge();
+
+}
+
+
+/* =========================================================
+   RENDER CART
+   ========================================================= */
+
+function renderCart() {
+
+    const container =
+        document.getElementById("cartItems");
+
+
+    const count =
+        cart.reduce(
+            (total, item) =>
+                total + item.quantity,
+            0
+        );
+
+
+    document.getElementById("cartCount")
+        .textContent = count;
+
+
+    if (cart.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty-cart">
+
+                <div style="font-size:50px;">
+                    🛒
+                </div>
+
+                <h3>Your cart is empty</h3>
+
+                <p>
+                    Add something delicious from our menu.
+                </p>
+
+            </div>
+
+        `;
+
+    } else {
+
+        container.innerHTML = cart.map(item => `
+
+            <div class="cart-item">
+
+                <div class="cart-item-row">
+
+                    <div>
+
+                        <div class="cart-item-name">
+                            ${escapeHTML(item.name)}
+                        </div>
+
+                        <div style="font-size:13px;color:#777;">
+                            ${money(item.price)} each
+                        </div>
+
+                    </div>
+
+                    <div class="cart-item-price">
+                        ${money(item.price * item.quantity)}
+                    </div>
+
+                </div>
+
+
+                <div class="quantity-control">
+
+                    <button
+                        onclick="changeQuantity(${item.id}, -1)">
+                        −
+                    </button>
+
+                    <strong>
+                        ${item.quantity}
+                    </strong>
+
+                    <button
+                        onclick="changeQuantity(${item.id}, 1)">
+                        +
+                    </button>
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromCart(${item.id})">
+
+                        Remove
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+    }
+
+
+    document.getElementById("cartSubtotal")
+        .textContent = money(getSubtotal());
+
+
+    document.getElementById("serviceCharge")
+        .textContent = money(getServiceCharge());
+
+
+    document.getElementById("cartTotal")
+        .textContent = money(getTotal());
+
+}
+
+
+/* =========================================================
+   OPEN CART
+   ========================================================= */
+
+function openCart() {
+
+    document
+        .getElementById("cartDrawer")
+        .classList.add("open");
+
+
+    document
+        .getElementById("cartOverlay")
+        .classList.add("show");
+
+}
+
+
+/* =========================================================
+   CLOSE CART
+   ========================================================= */
+
+function closeCart() {
+
+    document
+        .getElementById("cartDrawer")
+        .classList.remove("open");
+
+
+    document
+        .getElementById("cartOverlay")
+        .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+   ========================================================= */
+
+function openCheckout() {
+
+    if (cart.length === 0) {
+
+        showToast("Please add items to your cart first.");
+
+        return;
+
+    }
+
+
+    document
+        .getElementById("checkoutModal")
+        .classList.add("show");
+
+
+    renderCheckoutSummary();
+
+}
+
+
+function closeCheckout() {
+
+    document
+        .getElementById("checkoutModal")
+        .classList.remove("show");
+
+
+    document
+        .getElementById("receipt")
+        .classList.remove("show");
+
+}
+
+
+function renderCheckoutSummary() {
+
+    const container =
+        document.getElementById("checkoutSummary");
+
+
+    container.innerHTML = `
+
+        <div style="
+            margin-top:10px;
+            border:1px solid #eee;
+            border-radius:8px;
+            padding:10px;
+        ">
+
+            ${cart.map(item => `
+
+                <div style="
+                    display:flex;
+                    justify-content:space-between;
+                    padding:7px 0;
+                    border-bottom:1px solid #eee;
+                ">
+
+                    <span>
+                        ${escapeHTML(item.name)}
+                        × ${item.quantity}
+                    </span>
+
+                    <strong>
+                        ${money(item.price * item.quantity)}
+                    </strong>
+
+                </div>
+
+            `).join("")}
+
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                padding-top:10px;
+                font-size:18px;
+            ">
+
+                <strong>Total</strong>
+
+                <strong style="color:var(--primary);">
+                    ${money(getTotal())}
+                </strong>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   SUBMIT ORDER
+   ========================================================= */
+
+function submitOrder(event) {
+
+    event.preventDefault();
+
+
+    if (cart.length === 0) {
+
+        showToast("Your cart is empty.");
+
+        return;
+
+    }
+
+
+    const customerName =
+        document.getElementById("customerName")
+        .value.trim();
+
+
+    const customerPhone =
+        document.getElementById("customerPhone")
+        .value.trim();
+
+
+    const orderType =
+        document.getElementById("orderType")
+        .value;
+
+
+    const tableNumber =
+        document.getElementById("tableNumber")
+        .value.trim();
+
+
+    const specialInstructions =
+        document.getElementById("specialInstructions")
+        .value.trim();
+
+
+    if (!customerName || !customerPhone) {
+
+        showToast("Please enter your name and phone number.");
+
+        return;
+
+    }
+
+
+    const orderNumber =
+        "HA-" +
+        Date.now().toString().slice(-8);
+
+
+    const now = new Date();
+
+
+    const dateTime =
+        now.toLocaleString("en-NP", {
+            dateStyle: "medium",
+            timeStyle: "short"
+        });
+
+
+    let message = "";
+
+    message += "🏨 *HOTEL ANGEL*%0A";
+
+    message += "📍 Chhinnamasta-03, Sakhada, Saptari, Nepal%0A";
+
+    message += "━━━━━━━━━━━━━━━━━━%0A";
+
+    message += "🧾 *NEW ORDER*%0A";
+
+    message += "Order No: " + encodeURIComponent(orderNumber) + "%0A";
+
+    message += "Date: " + encodeURIComponent(dateTime) + "%0A%0A";
+
+
+    message += "👤 *CUSTOMER DETAILS*%0A";
+
+    message += "Name: " +
+        encodeURIComponent(customerName) +
+        "%0A";
+
+    message += "Phone: " +
+        encodeURIComponent(customerPhone) +
+        "%0A";
+
+    message += "Order Type: " +
+        encodeURIComponent(orderType) +
+        "%0A";
+
+
+    if (tableNumber) {
+
+        message += "Table/Location: " +
+            encodeURIComponent(tableNumber) +
+            "%0A";
+
+    }
+
+
+    message += "%0A🍽️ *ORDER ITEMS*%0A";
+
+
+    cart.forEach((item, index) => {
+
+        message +=
+            (index + 1) +
+            ". " +
+            encodeURIComponent(item.name) +
+            " × " +
+            item.quantity +
+            " = " +
+            encodeURIComponent(
+                money(item.price * item.quantity)
+            ) +
+            "%0A";
+
+    });
+
+
+    message += "%0A";
+
+    message += "Subtotal: " +
+        encodeURIComponent(money(getSubtotal())) +
+        "%0A";
+
+    message += "Service Charge: " +
+        encodeURIComponent(money(getServiceCharge())) +
+        "%0A";
+
+    message += "*TOTAL: " +
+        encodeURIComponent(money(getTotal())) +
+        "*%0A";
+
+
+    if (specialInstructions) {
+
+        message += "%0A📝 *SPECIAL INSTRUCTIONS*%0A";
+
+        message += encodeURIComponent(
+            specialInstructions
+        );
+
+        message += "%0A";
+
+    }
+
+
+    message += "%0AThank you! 🙏";
+
+
+    /*
+       HOTEL ANGEL WHATSAPP NUMBER
+       Change this number if required.
+
+       Format:
+       country code + number
+       without + or spaces.
+    */
+
+    const whatsappNumber =
+        "9779806302071";
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        message;
+
+
+    generateReceipt(
+        orderNumber,
+        dateTime,
+        customerName,
+        customerPhone,
+        orderType,
+        tableNumber
+    );
+
+
+    /*
+       Open WhatsApp
+    */
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+
+    showToast(
+        "Order prepared. WhatsApp is opening..."
+    );
+
+}
+
+
+/* =========================================================
+   RECEIPT
+   ========================================================= */
+
+function generateReceipt(
+    orderNumber,
+    dateTime,
+    customerName,
+    customerPhone,
+    orderType,
+    tableNumber
+) {
+
+    document.getElementById(
+        "receiptOrderNumber"
+    ).textContent =
+        "Order No: " + orderNumber;
+
+
+    document.getElementById(
+        "receiptCustomer"
+    ).innerHTML = `
+
+        <p>
+            <strong>Date:</strong>
+            ${escapeHTML(dateTime)}
+        </p>
+
+        <p>
+            <strong>Name:</strong>
+            ${escapeHTML(customerName)}
+        </p>
+
+        <p>
+            <strong>Phone:</strong>
+            ${escapeHTML(customerPhone)}
+        </p>
+
+        <p>
+            <strong>Order Type:</strong>
+            ${escapeHTML(orderType)}
+        </p>
+
+        ${
+            tableNumber
+            ? `
+                <p>
+                    <strong>Table/Location:</strong>
+                    ${escapeHTML(tableNumber)}
+                </p>
+              `
+            : ""
+        }
+
+    `;
+
+
+    const tbody =
+        document.getElementById(
+            "receiptItems"
+        );
+
+
+    tbody.innerHTML = cart.map(item => `
+
+        <tr>
+
+            <td>
+                ${escapeHTML(item.name)}
+            </td>
+
+            <td>
+                ${item.quantity}
+            </td>
+
+            <td>
+                ${money(item.price * item.quantity)}
+            </td>
+
+        </tr>
+
+    `).join("");
+
+
+    document.getElementById(
+        "receiptTotal"
+    ).textContent =
+        money(getTotal());
+
+
+    document
+        .getElementById("receipt")
+        .classList.add("show");
+
+}
+
+
+/* =========================================================
+   PRINT RECEIPT
+   ========================================================= */
+
+function printReceipt() {
+
+    window.print();
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+function toggleNavigation() {
+
+    document
+        .getElementById("navLinks")
+        .classList.toggle("show");
+
+}
+
+
+function closeNavigation() {
+
+    document
+        .getElementById("navLinks")
+        .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+let toastTimer;
+
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2500);
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+   ========================================================= */
+
+document
+    .getElementById("checkoutModal")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+
+            closeCheckout();
+
+        }
+
+    });
+
+
+/* =========================================================
+   ESC KEY
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeCart();
+
+            closeCheckout();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CURRENT YEAR
+   ========================================================= */
+
+document.getElementById(
+    "currentYear"
+).textContent =
+    new Date().getFullYear();
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+renderMenu();
+
+renderCart();
 
 </script>
 
 </body>
-
 </html>
