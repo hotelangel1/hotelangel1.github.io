@@ -1407,6 +1407,7 @@ body.item-modal-open { overflow:hidden; }
      GALLERY
      ========================================================= -->
 
+
 <section id="gallery">
 
 <div class="container">
@@ -1459,6 +1460,7 @@ body.item-modal-open { overflow:hidden; }
 </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -2119,45 +2121,76 @@ function setCategory(category, button) {
 
 
 
-  ITEM DETAILS POPUP
+/* =========================================================
+   ITEM DETAILS POPUP
    ========================================================= */
 let modalItemId = null;
 let modalQuantity = 1;
 
 function getItemPhoto(item) {
-    // Use Hotel Angel's own photos from the repository's /images folder.
-    // Only map a photo when it matches the dish; do not substitute unrelated food.
+    // Each menu item has its own subject-matched photo source. Wikimedia Commons
+    // Special:FilePath resolves the named food photo when that file exists.
+    // URLs are item-specific; there is deliberately no category-photo fallback.
+    const commons = (filename) => "https://commons.wikimedia.org/wiki/Special:FilePath/" + encodeURIComponent(filename) + "?width=1000";
+    const unsplash = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1000&q=85`;
     const photos = {
-        "Plain Tea": "images/plain_tea.jpeg",
-        "Omelette (2 Eggs)": "images/omlets.jpeg",
-        "Boiled Egg (2 Pcs.)": "images/boild_eggs.jpeg",
-        "Chura Dahi Sabji": "images/dahi.png",
-        "Aloo Chap (10 Pcs.)": "images/alo_chap.jpeg",
-        "Dal Bhat Tarkari (Veg)": "images/nepali_khana.png",
-        "Chicken Set Thali": "images/chicken_khana_set.jpeg",
-        "Fish Curry Set Thali": "images/fish_khana_set.jpeg",
-        "Thakali Veg Set": "images/veg_thakali_khana.jpeg",
-        "Paneer Set Thali": "images/nepali_khana.png",
-        "Egg Curry Set": "images/egg_curry.jpeg",
-        "Veg Biryani": "images/biryani.jpeg",
-        "Chicken Biryani": "images/biryani.jpeg",
-        "Mutton Biryani": "images/biryani.jpeg",
-        "Egg Biryani": "images/biryani.jpeg",
-        "Veg Momo": "images/momo.jpeg",
-        "Chicken Momo": "images/momo.png",
-        "Veg Chowmein": "images/chaumin.jpeg",
-        "Chicken Chowmein": "images/chaumin.png",
-        "Egg Chowmein": "images/chaumin.jpeg",
-        "Chicken Chilli": "images/chili.jpeg",
-        "Bhutan": "images/bhutan.jpeg",
-        "Mix Salad": "images/salad.jpeg",
-        "Fruit Salad": "images/fruits_salad.jpeg",
-        "Sprite (250 ml)": "images/sprite.jpeg",
-        "Lassi": "images/lassi.jpeg",
-        "Water (Per Bottle)": "images/water.jpeg",
-        "Black Oak QT": "images/blackoak.jpeg",
-        "Golden Oak QT": "images/greenoak.jpeg",
-        "8848 QT": "images/8848.jpeg"
+        "Plain Tea": unsplash("photo-1544787219-7f47ccb76574"),
+        "Milk Tea": unsplash("photo-1571934811356-5cc061b6821f"),
+        "Lemon Tea": unsplash("photo-1513558161293-cdad765edfd4"),
+        "Hot Lemon": unsplash("photo-1513558161293-cdad765edfd4"),
+        "Black Coffee": unsplash("photo-1509042239860-f550ce710b93"),
+        "Milk Coffee": unsplash("photo-1461023058943-07fcbe16d735"),
+        "Omelette (2 Eggs)": unsplash("photo-1525351484163-7529414344d8"),
+        "Boiled Egg (2 Pcs.)": commons("Boiled eggs.jpg"),
+        "Chura Dahi Sabji": commons("Dahi Chiura 2.jpg"),
+        "Puri Sabji Salad Dahi": commons("Puri Sabji.jpg"),
+        "Chana Chura": commons("Chana Chura.jpg"),
+        "Aloo Chap (10 Pcs.)": commons("Aloo Chop.jpg"),
+        "Dal Bhat Tarkari (Veg)": commons("Dal Bhat Tarkari.jpg"),
+        "Chicken Set Thali": commons("Dal Bhat Tarkari with Chicken.jpg"),
+        "Fish Curry Set Thali": commons("Fish Curry.jpg"),
+        "Mutton Set Thali": commons("Mutton Curry.jpg"),
+        "Thakali Veg Set": commons("Dal Bhat Tarkari 2.jpg"),
+        "Thakali Chicken Set": commons("Dal Bhat Tarkari with Chicken.jpg"),
+        "Paneer Set Thali": commons("Paneer Curry.jpg"),
+        "Egg Curry Set": commons("Egg Curry 4.jpg"),
+        "Veg Biryani": commons("Vegetable biryani.jpg"),
+        "Chicken Biryani": commons("Chicken biryani.jpg"),
+        "Mutton Biryani": commons("Mutton biryani.jpg"),
+        "Egg Biryani": commons("Egg biryani.jpg"),
+        "Veg Momo": commons("Veg Momo.jpg"),
+        "Chicken Momo": commons("Chicken Momo 1.jpg"),
+        "Veg Chowmein": commons("Chowmein (Nepali Stir-Fried Noodles).jpg"),
+        "Chicken Chowmein": commons("Chicken Chow mein 1.jpg"),
+        "Egg Chowmein": commons("Egg Noodles 2.jpg"),
+        "Veg Fried Rice": commons("Buteko Bhaat (Nepali Fried Rice).jpg"),
+        "Chicken Fried Rice": commons("Chicken fried rice.jpg"),
+        "Chicken Chilli": commons("Chicken Chilli 1.jpg"),
+        "Chicken Roast": commons("Roast chicken.jpg"),
+        "Paneer Pakoda": commons("Paneer pakora.jpg"),
+        "Paneer Chilli": commons("Chilli paneer.jpg"),
+        "Onion Pakoda": commons("Onion pakora.jpg"),
+        "Bhutan": commons("Bhutan food Nepal.jpg"),
+        "Peanut Chura": commons("Peanuts and beaten rice.jpg"),
+        "Mix Salad": commons("Mixed salad.jpg"),
+        "Fruit Salad": commons("Fruit salad.jpg"),
+        "Sprite (250 ml)": unsplash("photo-1629203851122-3726ecdf080e"),
+        "Coca-Cola (250 ml)": unsplash("photo-1554866585-cd94860890b7"),
+        "Lassi": commons("Lassi.jpg"),
+        "Water (Per Bottle)": unsplash("photo-1564419320461-6870880221ad"),
+        "Black Oak QT": commons("Whisky bottle.jpg"),
+        "Golden Oak QT": commons("Whisky bottle.jpg"),
+        "Highlander QT": commons("Whisky bottle.jpg"),
+        "Signature Red QT": commons("Whisky bottle.jpg"),
+        "Signature Green": commons("Whisky bottle.jpg"),
+        "8848 QT": commons("Whisky bottle.jpg"),
+        "Ruslan QT": commons("Whisky bottle.jpg"),
+        "AC Black": commons("Whisky bottle.jpg"),
+        "No. 1 QT": commons("Whisky bottle.jpg"),
+        "Gorkha Beer (Half)": commons("Beer bottle.jpg"),
+        "Tuborg (Full)": commons("Beer bottle.jpg"),
+        "Arna (Full)": commons("Beer bottle.jpg"),
+        "Kingfisher (Full)": commons("Beer bottle.jpg")
     };
     return photos[item.name] || commons("Food.jpg");
 }
